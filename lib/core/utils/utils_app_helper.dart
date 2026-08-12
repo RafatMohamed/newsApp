@@ -6,7 +6,7 @@ class GetThemData{
 }
 
 class GetIsDark{
-  bool get isDark=>ThemeMode.dark.isDark;
+ static bool get isDark=>ThemeMode.dark.isDark;
 }
 
 class ScreenSize{

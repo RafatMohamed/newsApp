@@ -15,12 +15,10 @@ class AppThem {
         iconTheme: IconThemeData(
           color: AppColors.black,
           size: 24,
-          fill: 24,
         ),
         actionsIconTheme: IconThemeData(
           color: AppColors.black,
           size: 24,
-          fill: 24,
         ),
       ),
       tabBarTheme: TabBarThemeData(
@@ -70,12 +68,10 @@ class AppThem {
         iconTheme: IconThemeData(
           color: AppColors.white,
           size: 24,
-          fill: 24,
         ),
         actionsIconTheme: IconThemeData(
           color: AppColors.white,
           size: 24,
-          fill: 24,
         ),
       ),
     tabBarTheme: TabBarThemeData(
