@@ -54,6 +54,8 @@ class $AssetsImagesGen {
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
+  final SvgGenImage search = const SvgGenImage('assets/icons/Search.svg');
+  final SvgGenImage arrow = const SvgGenImage('assets/icons/arrow.svg');
   final SvgGenImage dropDownIcon = const SvgGenImage(
     'assets/icons/dropDownIcon.svg',
   );

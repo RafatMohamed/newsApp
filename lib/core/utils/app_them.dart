@@ -22,6 +22,9 @@ class AppThem {
           color: AppColors.black,
           size: 24,
         ),
+        actionsPadding: EdgeInsetsDirectional.only(
+          end: AppPadding.p8
+        ),
       ),
       tabBarTheme: TabBarThemeData(
         dividerColor: Colors.transparent,
@@ -65,6 +68,9 @@ class AppThem {
     primaryColor: AppColors.black,
     secondaryHeaderColor: AppColors.white,
       appBarTheme:const AppBarTheme(
+        actionsPadding: EdgeInsetsDirectional.only(
+            end: AppPadding.p8
+        ),
         backgroundColor: AppColors.black,
         titleTextStyle: AppTextStyles.style20mW,
         centerTitle: true,

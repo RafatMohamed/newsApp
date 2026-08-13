@@ -4,7 +4,7 @@ import 'package:news_app/core/utils/app_them.dart';
 import 'package:provider/provider.dart';
 import '../core/logic/providers/localization.dart';
 import '../core/logic/providers/them_provider.dart';
-import '../feature/drawer/view/drawer_view.dart';
+import '../feature/home/view/home_view.dart';
 
 class NewsApp extends StatelessWidget {
   const NewsApp({super.key});
@@ -20,13 +20,13 @@ class NewsApp extends StatelessWidget {
           create: (BuildContext context) => LanguageProvider(),
         ),
       ],
-      child: const CustomMatrialsApp(),
+      child: const CustomMaterialsApp(),
     );
   }
 }
 
-class CustomMatrialsApp extends StatelessWidget {
-  const CustomMatrialsApp({super.key});
+class CustomMaterialsApp extends StatelessWidget {
+  const CustomMaterialsApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -34,11 +34,11 @@ class CustomMatrialsApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
-      locale: Provider.of<LanguageProvider>(context).currentLanguage,
+      locale: context.locale,
       theme: AppThem.lightThem,
       darkTheme: AppThem.darkThem,
       themeMode: Provider.of<ThemProvider>(context).currentThem,
-      home: const DrawerView(),
+      home: const HomeView(),
     );
   }
 }

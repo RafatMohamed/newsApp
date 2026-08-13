@@ -7,8 +7,8 @@ import '../../../../core/utils/app_padding.dart';
 import 'custom_item_drawer.dart';
 
 class CustomDrawerView extends StatelessWidget {
-  const CustomDrawerView({super.key});
-
+  const CustomDrawerView({super.key, required this.onTapRest});
+  final VoidCallback onTapRest;
   @override
   Widget build(BuildContext context) {
     final double width = context.width;
@@ -38,10 +38,16 @@ class CustomDrawerView extends StatelessWidget {
             child: Column(
               spacing: AppPadding.p24,
               children: [
-                CustomItemDrawer(
-                  title: AppText.goToHome,
-                  iconPath: Assets.icons.home.path,
-                  withWidget: false,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pop(context);
+                    onTapRest();
+                  },
+                  child: CustomItemDrawer(
+                    title: AppText.goToHome,
+                    iconPath: Assets.icons.home.path,
+                    withWidget: false,
+                  ),
                 ),
                 const Divider(),
                 CustomItemDrawer(
