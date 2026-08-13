@@ -36,7 +36,7 @@ class CustomMatrialsApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
-      locale: context.locale,
+      locale: Provider.of<LanguageProvider>(context).currentLanguage,
       theme: AppThem.lightThem,
       darkTheme: AppThem.darkThem,
       themeMode: Provider.of<ThemProvider>(context).currentThem,
@@ -50,7 +50,6 @@ class testWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool isDark = GetIsDark.isDark;
     return Scaffold(
       body: Center(
         child: Column(
@@ -70,6 +69,12 @@ class testWidget extends StatelessWidget {
                   newLang: const Locale("en"),
                   context: context,
                 );
+                Provider.of<ThemProvider>(
+                  context,
+                  listen: false,
+                ).changeThemMode(
+                  newThem: ThemeMode.dark
+                );
               },
               child: Text(
                 AppText.english,
@@ -84,6 +89,12 @@ class testWidget extends StatelessWidget {
                 ).changeLanguage(
                   newLang: const Locale("ar"),
                   context: context,
+                );
+                Provider.of<ThemProvider>(
+                  context,
+                  listen: false,
+                ).changeThemMode(
+                    newThem: ThemeMode.light
                 );
               },
               child: Text(
