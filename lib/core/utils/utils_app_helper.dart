@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class GetThemData{
@@ -7,6 +8,12 @@ class GetThemData{
 
 class GetIsDark{
  static bool get isDark=>ThemeMode.dark.isDark;
+}
+class GetLanguage{
+ static Locale locale(BuildContext context)=>context.locale;
+}
+class GetIsEnglish{
+  static bool  isEnglish(BuildContext context)=>GetLanguage.locale(context) == const Locale("en");
 }
 
 class ScreenSize{
