@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/core/services/StorgeLocal/them_local_storge.dart';
-import 'package:news_app/core/utils/utils_app_helper.dart';
 
 class ThemProvider extends ChangeNotifier{
   ThemeMode currentThem= StorgeThemLocalHive.instance.getThemLocal()?ThemeMode.dark:ThemeMode.light;

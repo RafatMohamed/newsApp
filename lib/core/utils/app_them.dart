@@ -7,7 +7,9 @@ import 'package:news_app/core/utils/app_text_styles.dart';
 class AppThem {
   static ThemeData lightThem= ThemeData(
       scaffoldBackgroundColor: AppColors.white,
-      appBarTheme:AppBarTheme(
+      primaryColor: AppColors.white,
+      secondaryHeaderColor: AppColors.black,
+      appBarTheme:const AppBarTheme(
         backgroundColor: AppColors.white,
         titleTextStyle: AppTextStyles.style20mB,
         centerTitle: true,
@@ -37,7 +39,7 @@ class AppThem {
         indicatorColor: AppColors.black,
         tabAlignment: .start,
       ),
-      textTheme: TextTheme(
+      textTheme: const TextTheme(
           headlineLarge:AppTextStyles.style30bW,
           headlineMedium: AppTextStyles.style24bW,
           headlineSmall: AppTextStyles.style24mB,
@@ -51,7 +53,7 @@ class AppThem {
       ),
     useMaterial3: true,
     dividerTheme: DividerThemeData(
-      color: AppColors.white,
+      color: AppColors.black,
       indent: AppPadding.p16,
       endIndent: AppPadding.p16,
       thickness: 2,
@@ -60,7 +62,9 @@ class AppThem {
   );
   static ThemeData darkThem= ThemeData(
     scaffoldBackgroundColor: AppColors.black,
-      appBarTheme:AppBarTheme(
+    primaryColor: AppColors.black,
+    secondaryHeaderColor: AppColors.white,
+      appBarTheme:const AppBarTheme(
         backgroundColor: AppColors.black,
         titleTextStyle: AppTextStyles.style20mW,
         centerTitle: true,
@@ -90,7 +94,7 @@ class AppThem {
       indicatorColor: AppColors.white,
       tabAlignment: .start,
     ),
-    textTheme: TextTheme(
+    textTheme: const TextTheme(
       headlineLarge:AppTextStyles.style30bB,
       headlineMedium: AppTextStyles.style24bB,
       headlineSmall: AppTextStyles.style24mW,
