@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/core/utils/app_text.dart';
-import 'package:news_app/core/utils/utils_app_helper.dart';
-import 'package:provider/provider.dart';
-
-import '../../../../core/logic/providers/localization.dart';
-import '../../../../core/logic/providers/them_provider.dart';
+import '../../../../core/utils/app_padding.dart';
+import 'custom_bottom_sheet_source.dart';
+import 'custom_item_sourve.dart';
 import 'custom_tab_bar.dart';
 
 class NewsView extends StatefulWidget {
@@ -36,7 +34,7 @@ class _NewsViewState extends State<NewsView> {
     ];
 
     return Column(
-      children:[
+      children: [
         CustomTabBarSources(
           listSource: list,
           onTapSource: (tabIndex) {
@@ -44,11 +42,31 @@ class _NewsViewState extends State<NewsView> {
             currentIndex = tabIndex;
           },
         ),
-        Column(
-
+        Expanded(
+          child: Padding(
+            padding: const EdgeInsets.all(AppPadding.p16),
+            child: Expanded(
+              child: ListView.separated(
+                itemBuilder: (_, index) {
+                  return InkWell(
+                    onTap: () {
+                      showModalBottomSheet(
+                        context: context,
+                        builder: (context) {
+                          return const CustomBottomSheetSource();
+                        },
+                      );
+                    },
+                    child: const CustomItemSource(),
+                  );
+                },
+                separatorBuilder: (_, _) => const SizedBox(height: 16),
+                itemCount: 5,
+              ),
+            ),
+          ),
         ),
       ],
     );
   }
 }
-

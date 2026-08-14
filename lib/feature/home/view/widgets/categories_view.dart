@@ -22,7 +22,7 @@ class CategoriesView extends StatelessWidget {
         crossAxisAlignment: .start,
         children: [
           Text(AppText.headTitle, style: textThem.headlineSmall),
-          SizedBox(height: 20,),
+          const SizedBox(height: 20,),
           Expanded(
             child: ListView.separated(
               itemCount: CategoriesModel.categoriesItems.length,
@@ -38,7 +38,7 @@ class CategoriesView extends StatelessWidget {
                   ),
                 );
               },
-              separatorBuilder: (context, index) => SizedBox(height: 20,),
+              separatorBuilder: (context, index) => const SizedBox(height: 20,),
             ),
           ),
         ],

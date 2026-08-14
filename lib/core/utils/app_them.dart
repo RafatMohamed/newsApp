@@ -37,12 +37,12 @@ class AppThem {
         labelColor: AppColors.black,
         indicator: UnderlineTabIndicator(
             borderRadius: BorderRadius.circular(AppBorderRadius.r8),
-            borderSide: BorderSide(
+            borderSide: const BorderSide(
                 color: AppColors.black
             )
         ),
         indicatorSize: TabBarIndicatorSize.label,
-        labelPadding: EdgeInsetsDirectional.only(end:AppPadding.p16),
+        labelPadding: const EdgeInsetsDirectional.only(end:AppPadding.p16),
         indicatorColor: AppColors.black,
         tabAlignment: .start,
       ),
@@ -99,12 +99,12 @@ class AppThem {
       labelColor: AppColors.white,
       indicator: UnderlineTabIndicator(
         borderRadius: BorderRadius.circular(AppBorderRadius.r8),
-        borderSide: BorderSide(
+        borderSide: const BorderSide(
           color: AppColors.white
         )
       ),
       indicatorSize: TabBarIndicatorSize.label,
-      labelPadding: EdgeInsetsDirectional.only(end:AppPadding.p16),
+      labelPadding: const EdgeInsetsDirectional.only(end:AppPadding.p16),
       indicatorColor: AppColors.white,
       tabAlignment: .start,
     ),
