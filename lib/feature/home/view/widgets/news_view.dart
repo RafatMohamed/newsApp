@@ -5,58 +5,50 @@ import 'package:provider/provider.dart';
 
 import '../../../../core/logic/providers/localization.dart';
 import '../../../../core/logic/providers/them_provider.dart';
+import 'custom_tab_bar.dart';
 
-class NewsView extends StatelessWidget {
+class NewsView extends StatefulWidget {
   const NewsView({super.key});
 
   @override
+  State<NewsView> createState() => _NewsViewState();
+}
+
+class _NewsViewState extends State<NewsView> {
+  int currentIndex = 0;
+  @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: .center,
-        spacing: 24,
-        children: [
-          Text(
-            GetLanguage.locale(context) == const Locale("en")
-                ? AppText.english
-                : AppText.arabic,
-            style: GetThemData.getTextThemData(context).titleLarge,
-          ),
-          GestureDetector(
-            onTap: () {
-              Provider.of<LanguageProvider>(
-                context,
-                listen: false,
-              ).changeLanguage(newLang: const Locale("en"), context: context);
-              Provider.of<ThemProvider>(
-                context,
-                listen: false,
-              ).changeThemMode(newThem: ThemeMode.dark);
-            },
-            child: Text(
-              AppText.english,
-              style: GetThemData.getTextThemData(context).titleLarge,
-            ),
-          ),
-          GestureDetector(
-            onTap: () {
-              Provider.of<LanguageProvider>(
-                context,
-                listen: false,
-              ).changeLanguage(newLang: const Locale("ar"), context: context);
-              Provider.of<ThemProvider>(
-                context,
-                listen: false,
-              ).changeThemMode(newThem: ThemeMode.light);
-            },
-            child: Text(
-              AppText.arabic,
-              style: GetThemData.getTextThemData(context).titleLarge,
-            ),
-          ),
-        ],
-      ),
-    )
-    ;
+    List<String> list = [
+      AppText.business,
+      AppText.entertainment,
+      AppText.general,
+      AppText.health,
+      AppText.science,
+      AppText.sport,
+      AppText.technology,
+      AppText.business,
+      AppText.entertainment,
+      AppText.general,
+      AppText.health,
+      AppText.science,
+      AppText.sport,
+      AppText.technology,
+    ];
+
+    return Column(
+      children:[
+        CustomTabBarSources(
+          listSource: list,
+          onTapSource: (tabIndex) {
+            if (tabIndex == currentIndex) return;
+            currentIndex = tabIndex;
+          },
+        ),
+        Column(
+
+        ),
+      ],
+    );
   }
 }
+

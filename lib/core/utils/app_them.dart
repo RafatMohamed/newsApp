@@ -35,10 +35,14 @@ class AppThem {
         labelStyle: AppTextStyles.style16bB,
         unselectedLabelColor:AppColors.black,
         labelColor: AppColors.black,
-        indicator: BoxDecoration(
-          color: AppColors.black,
-          borderRadius: BorderRadius.circular(AppBorderRadius.r8),
+        indicator: UnderlineTabIndicator(
+            borderRadius: BorderRadius.circular(AppBorderRadius.r8),
+            borderSide: BorderSide(
+                color: AppColors.black
+            )
         ),
+        indicatorSize: TabBarIndicatorSize.label,
+        labelPadding: EdgeInsetsDirectional.only(end:AppPadding.p16),
         indicatorColor: AppColors.black,
         tabAlignment: .start,
       ),
@@ -93,10 +97,14 @@ class AppThem {
       labelStyle: AppTextStyles.style16bW,
       unselectedLabelColor:AppColors.white,
       labelColor: AppColors.white,
-      indicator: BoxDecoration(
-        color: AppColors.white,
+      indicator: UnderlineTabIndicator(
         borderRadius: BorderRadius.circular(AppBorderRadius.r8),
+        borderSide: BorderSide(
+          color: AppColors.white
+        )
       ),
+      indicatorSize: TabBarIndicatorSize.label,
+      labelPadding: EdgeInsetsDirectional.only(end:AppPadding.p16),
       indicatorColor: AppColors.white,
       tabAlignment: .start,
     ),
