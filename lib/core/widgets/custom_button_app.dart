@@ -1,0 +1,26 @@
+import 'package:flutter/material.dart';
+import 'package:news_app/core/utils/app_text.dart';
+
+import '../utils/app_border_radius.dart';
+import '../utils/app_padding.dart';
+import '../utils/utils_app_helper.dart';
+
+class CustomButtonApp extends StatelessWidget {
+  const CustomButtonApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final ThemeData colorTheme = GetThemData.getColorThemData(context);
+    final TextTheme textTheme = GetThemData.getTextThemData(context);
+    return Container(
+      width: .infinity,
+      alignment: .center,
+      padding: const EdgeInsetsDirectional.all(AppPadding.p16),
+      decoration: BoxDecoration(
+        color:colorTheme.primaryColor,
+        borderRadius: BorderRadiusDirectional.circular(AppBorderRadius.r8),
+      ),
+      child: Text(AppText.viewFullArticel,style: textTheme.bodyMedium,),
+    );
+  }
+}
