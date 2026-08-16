@@ -45,24 +45,22 @@ class _NewsViewState extends State<NewsView> {
         Expanded(
           child: Padding(
             padding: const EdgeInsets.all(AppPadding.p16),
-            child: Expanded(
-              child: ListView.separated(
-                itemBuilder: (_, index) {
-                  return InkWell(
-                    onTap: () {
-                      showModalBottomSheet(
-                        context: context,
-                        builder: (context) {
-                          return const CustomBottomSheetSource();
-                        },
-                      );
-                    },
-                    child: const CustomItemSource(),
-                  );
-                },
-                separatorBuilder: (_, _) => const SizedBox(height: 16),
-                itemCount: 5,
-              ),
+            child:  ListView.separated(
+              itemBuilder: (_, index) {
+                return InkWell(
+                  onTap: () {
+                    showModalBottomSheet(
+                      context: context,
+                      builder: (context) {
+                        return const CustomBottomSheetSource();
+                      },
+                    );
+                  },
+                  child: const CustomItemSource(),
+                );
+              },
+              separatorBuilder: (_, _) => const SizedBox(height: 16),
+              itemCount: 5,
             ),
           ),
         ),
