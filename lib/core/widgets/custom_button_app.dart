@@ -6,21 +6,24 @@ import '../utils/app_padding.dart';
 import '../utils/utils_app_helper.dart';
 
 class CustomButtonApp extends StatelessWidget {
-  const CustomButtonApp({super.key});
-
+  const CustomButtonApp({super.key, required this.onTap});
+  final Function() onTap;
   @override
   Widget build(BuildContext context) {
     final ThemeData colorTheme = GetThemData.getColorThemData(context);
     final TextTheme textTheme = GetThemData.getTextThemData(context);
-    return Container(
-      width: .infinity,
-      alignment: .center,
-      padding: const EdgeInsetsDirectional.all(AppPadding.p16),
-      decoration: BoxDecoration(
-        color:colorTheme.primaryColor,
-        borderRadius: BorderRadiusDirectional.circular(AppBorderRadius.r8),
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        width: .infinity,
+        alignment: .center,
+        padding: const EdgeInsetsDirectional.all(AppPadding.p16),
+        decoration: BoxDecoration(
+          color:colorTheme.primaryColor,
+          borderRadius: BorderRadiusDirectional.circular(AppBorderRadius.r8),
+        ),
+        child: Text(AppText.viewFullArticel,style: textTheme.bodyMedium,),
       ),
-      child: Text(AppText.viewFullArticel,style: textTheme.bodyMedium,),
     );
   }
 }

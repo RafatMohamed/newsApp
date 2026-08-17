@@ -47,9 +47,11 @@ class CustomCategoriesItems extends StatelessWidget {
             mainAxisAlignment: .spaceBetween,
             children: [
               Text(
-                categoriesItem.name.tr(),
+                categoriesItem.name,
                 style: textThem.headlineLarge,
                 textAlign: .start,
+              ).tr(
+                context: context,
               ),
               Container(
                 padding: EdgeInsetsDirectional.only(

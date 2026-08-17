@@ -1,5 +1,5 @@
 import 'package:hive_flutter/hive_flutter.dart';
-import '../../const.dart';
+import '../../consts/app_const.dart';
 
 
 class StorgeThemLocalHive {

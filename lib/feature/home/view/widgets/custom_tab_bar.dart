@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../core/model/sourcesModel/sources_item_model.dart';
 
 class CustomTabBarSources extends StatelessWidget {
   const CustomTabBarSources({
@@ -7,7 +8,7 @@ class CustomTabBarSources extends StatelessWidget {
     required this.onTapSource,
   });
 
-  final List<String> listSource;
+  final List<SourcesItemModel> listSource;
   final ValueChanged<int> onTapSource;
 
   @override
@@ -20,7 +21,7 @@ class CustomTabBarSources extends StatelessWidget {
         },
         isScrollable: true,
         padding: const EdgeInsetsDirectional.only(start: 16),
-        tabs: listSource.map((source) => Tab(text: source)).toList(),
+        tabs: listSource.map((source) => Tab(text: source.name)).toList(),
       ),
     );
   }

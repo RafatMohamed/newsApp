@@ -18,7 +18,7 @@ class _HomeViewState extends State<HomeView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppText.home),
+        title: Text(categories == null ? AppText.home : categories!.name),
         actions: [
           IconButton(onPressed: () {}, icon: const Icon(Icons.search_rounded)),
         ],
@@ -30,12 +30,12 @@ class _HomeViewState extends State<HomeView> {
                 onTapCategories(categoriesModel);
               },
             )
-          : const NewsView(),
+          : NewsView(categoriesId: categories!.id),
     );
   }
 
   void restCategories() {
-    if(categories==null)return;
+    if (categories == null) return;
     setState(() {
       categories = null;
     });
