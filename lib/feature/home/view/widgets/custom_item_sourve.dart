@@ -1,19 +1,20 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:news_app/core/model/articalsModel/articles_item_model.dart';
 import 'package:news_app/core/utils/app_border_radius.dart';
 import 'package:news_app/core/utils/app_padding.dart';
 import 'package:news_app/core/utils/utils_app_helper.dart';
 import 'package:timeago/timeago.dart' as timeago;
+import '../../../../core/widgets/custom_widget_image.dart';
 
 class CustomItemSource extends StatelessWidget {
-  const CustomItemSource({super.key});
-
+  const CustomItemSource({super.key, required this.articles});
+  final ArticlesItemsModel articles;
   @override
   Widget build(BuildContext context) {
     final ThemeData colorTheme = GetThemData.getColorThemData(context);
     final TextTheme textTheme = GetThemData.getTextThemData(context);
     final height = context.height;
-    final sourceDateTime = DateTime.now().subtract(const Duration(days: 1000));
     return Container(
       clipBehavior: .antiAlias,
       padding: const EdgeInsetsDirectional.all(AppPadding.p8),
@@ -31,15 +32,10 @@ class CustomItemSource extends StatelessWidget {
         children: [
           ClipRRect(
             borderRadius: BorderRadiusDirectional.circular(AppBorderRadius.r16),
-            child: Image.asset(
-              "assets/images/Rectangle 2.png",
-              height: height * 0.22,
-              width: double.infinity,
-              fit: .fill,
-            ),
+            child: CustomImageAppWidget(pathImage: articles.urlToImage!, height: height),
           ),
           Text(
-            "40-year-old man falls 200 feet to his death while canyoneering at national park",
+            articles.title!,
             style: textTheme.bodyMedium,
           ),
           Row(
@@ -48,7 +44,7 @@ class CustomItemSource extends StatelessWidget {
               Expanded(
                 flex: 7,
                 child: Text(
-                  "By : Raafat Mohamed",
+                  "By : ${articles.author}",
                   style: textTheme.labelSmall,
                   maxLines: 1,
                   overflow: .ellipsis,
@@ -58,7 +54,7 @@ class CustomItemSource extends StatelessWidget {
                 flex: 3,
                 child: Text(
                   timeago.format(
-                    sourceDateTime,
+                    DateTime.parse(articles.publishedAt!),
                     locale: context.locale.languageCode == "ar"
                         ? "ar"
                         : "en",
@@ -75,3 +71,4 @@ class CustomItemSource extends StatelessWidget {
     );
   }
 }
+
