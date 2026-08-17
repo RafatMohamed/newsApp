@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "921272793737",
+    "project_id": "news-app-fcm",
+    "storage_bucket": "news-app-fcm.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:921272793737:android:a39bbdfc7744c777c5e458",
+        "android_client_info": {
+          "package_name": "com.example.news_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2dJvOg_r10uPFUhnMzwDVkr5BJ4vGXIU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
