@@ -22,9 +22,11 @@ class ApiServices {
 
   }
 
-  static Future<ArticlesModel> getArticals(String sourceID)async{
+  static Future<ArticlesModel> getArticals({required String sourceID,required int page,required int pageSize})async{
     final Uri url = Uri.https(ApiConst.baseURl, ApiConst.articalsEndPoint,{
       "apiKey":ApiConst.apiKey,
+      "pageSize":pageSize.toString(),
+      "page":page.toString(),
       "sources":sourceID
     });
    final http.Response response =await http.get(url);

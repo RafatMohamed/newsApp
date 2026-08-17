@@ -49,47 +49,47 @@ class _NewsViewState extends State<NewsView> {
                 setState(() {});
               },
             ),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.all(AppPadding.p16),
-                child:  FutureBuilder(
-                  future: ApiServices.getArticals(sourceItem[currentIndex].id??"bbc-news"),
-                  builder: (context, snapShot) {
-                    final List<ArticlesItemsModel>? articalsItems=  snapShot.data?.articles;
-                    if(snapShot.hasError ||snapShot.data?.status!="ok"){
-                      return  ErrorIndicator(msg:AppText.errorNowArticles);
-                    }
-                    if(!snapShot.hasData){
-                      return  NoDataIndicator(msg:AppText.noArticlesFound);
-                    }
-                    return articalsItems!=null? Skeletonizer(
-                      enabled:snapShot.connectionState==.waiting,
-                      enableSwitchAnimation: true,
-                      effect: const PulseEffect(),
-                      child: ListView.separated(
-                        itemBuilder: (_, index) {
-                          return InkWell(
-                            onTap: () {
-                              showModalBottomSheet(
-                                context: context,
-                                builder: (context) {
-                                  return  CustomBottomSheetSource(
-                                    articles: articalsItems[index],
-                                  );
-                                },
-                              );
-                            },
-                            child:  CustomItemSource(articles: articalsItems[index]),
-                          );
-                        },
-                        separatorBuilder: (_, _) => const SizedBox(height: 16),
-                        itemCount: articalsItems.length,
-                      ),
-                    ): NoDataIndicator(msg: AppText.noArticlesFound,);
-                  }
-                ),
-              ),
-            ),
+            // Expanded(
+            //   child: Padding(
+            //     padding: const EdgeInsets.all(AppPadding.p16),
+            //     child:  FutureBuilder(
+            //       future: ApiServices.getArticals(sourceItem[currentIndex].id??"bbc-news"),
+            //       builder: (context, snapShot) {
+            //         final List<ArticlesItemsModel>? articalsItems=  snapShot.data?.articles;
+            //         if(snapShot.hasError ||snapShot.data?.status!="ok"){
+            //           return  ErrorIndicator(msg:AppText.errorNowArticles);
+            //         }
+            //         if(!snapShot.hasData){
+            //           return  NoDataIndicator(msg:AppText.noArticlesFound);
+            //         }
+            //         return articalsItems!=null? Skeletonizer(
+            //           enabled:snapShot.connectionState==.waiting,
+            //           enableSwitchAnimation: true,
+            //           effect: const PulseEffect(),
+            //           child: ListView.separated(
+            //             itemBuilder: (_, index) {
+            //               return InkWell(
+            //                 onTap: () {
+            //                   showModalBottomSheet(
+            //                     context: context,
+            //                     builder: (context) {
+            //                       return  CustomBottomSheetSource(
+            //                         articles: articalsItems[index],
+            //                       );
+            //                     },
+            //                   );
+            //                 },
+            //                 child:  CustomItemSource(articles: articalsItems[index]),
+            //               );
+            //             },
+            //             separatorBuilder: (_, _) => const SizedBox(height: 16),
+            //             itemCount: articalsItems.length,
+            //           ),
+            //         ): NoDataIndicator(msg: AppText.noArticlesFound,);
+            //       }
+            //     ),
+            //   ),
+            // ),
           ],
         ) :const NoDataIndicator(msg: "not Found News",);
       }
