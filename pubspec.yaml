@@ -44,7 +44,6 @@ dependencies:
   firebase_core: ^4.13.0
   firebase_messaging: ^16.5.0
   http: ^1.6.0
-  shimmer: ^3.0.0
   url_launcher: ^6.3.2
   cached_network_image: ^3.4.1
   skeletonizer: ^2.1.3

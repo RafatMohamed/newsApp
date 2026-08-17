@@ -20,6 +20,21 @@ class AppText {
   static String get health => "health".tr();
   static String get technology => "technology".tr();
   static String get sport => "sport".tr();
+  static String get search => "search".tr();
 
   static String get viewFullArticel => "viewFullArticel".tr();
+
+
+
+  // News
+  static String get errorNowSource => "error_now_source".tr();
+  static String get noSource => "no_source".tr();
+  static String get notFoundNews => "not_found_news".tr();
+
+  // Articles
+  static String get errorNowArticles => "error_now_articles".tr();
+  static String get noArticlesFound => "no_articles_found".tr();
+
+  // Search
+  static String get newsSearch => "news_search".tr();
 }

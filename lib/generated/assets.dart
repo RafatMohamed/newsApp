@@ -14,6 +14,9 @@ class Assets {
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  final AssetGenImage rectangle2 = const AssetGenImage(
+    'assets/images/Rectangle 2.png',
+  );
   final AssetGenImage brandingDark = const AssetGenImage(
     'assets/images/branding_dark.png',
   );

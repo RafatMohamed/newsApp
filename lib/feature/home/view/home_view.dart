@@ -4,6 +4,7 @@ import 'package:news_app/feature/drawer/view/widgets/custom_drawer_view.dart';
 import 'package:news_app/feature/home/models/categories_model.dart';
 import 'package:news_app/feature/home/view/widgets/categories_view.dart';
 import 'package:news_app/feature/home/view/widgets/news_view.dart';
+import 'package:news_app/feature/search/view/search_view.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -20,7 +21,19 @@ class _HomeViewState extends State<HomeView> {
       appBar: AppBar(
         title: Text(categories == null ? AppText.home : categories!.name),
         actions: [
-          IconButton(onPressed: () {}, icon: const Icon(Icons.search_rounded)),
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return const SearchView();
+                  },
+                ),
+              );
+            },
+            icon: const Icon(Icons.search_rounded),
+          ),
         ],
       ),
       drawer: CustomDrawerView(onTapRest: restCategories),

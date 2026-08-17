@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:news_app/core/logic/providers/localization.dart';
@@ -18,9 +19,8 @@ class _CustomDropDownLanguageState extends State<CustomDropDownLanguage> {
   Widget build(BuildContext context) {
     final ThemeData colorThem = GetThemData.getColorThemData(context);
     final TextTheme textThem = GetThemData.getTextThemData(context);
-    Locale currentLocal = Provider.of<LanguageProvider>(context).currentLanguage;
     return DropdownMenu<Locale>(
-      initialSelection: currentLocal,
+      initialSelection: context.locale,
       scrollPadding: .zero,
       inputDecorationTheme: const InputDecorationTheme(
         border: InputBorder.none,

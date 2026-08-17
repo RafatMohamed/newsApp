@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/core/utils/app_text.dart';
 
 class ErrorIndicator extends StatelessWidget {
   const ErrorIndicator({super.key, this.msg});
@@ -8,7 +9,7 @@ class ErrorIndicator extends StatelessWidget {
     final TextTheme textTheme = Theme.of(context).textTheme;
     return Center(
       child: Text(
-        msg == null ? "Something Went Wrong" : msg!,
+        msg == null ? AppText.errorNowSource : msg!,
         style: textTheme.titleMedium,
       ),
     );

@@ -10,7 +10,7 @@
   "language": "Language",
   "english": "English",
   "arabic": "Arabic",
-
+  "search": "Search",
   "general": "General",
   "business": "Business",
   "entertainment": "Entertainment",
@@ -19,5 +19,14 @@
   "technology": "Technology",
   "sport": "Sport",
 
-  "viewFullArticel": "View Full Article"
+  "viewFullArticel": "View Full Article",
+
+  "error_now_source": "Something went wrong with sources",
+  "no_source": "No source found",
+  "not_found_news": "No news found",
+
+  "error_now_articles": "Something went wrong with articles",
+  "no_articles_found": "No articles found",
+
+  "news_search": "Search for news"
 }

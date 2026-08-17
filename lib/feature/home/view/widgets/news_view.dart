@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/core/helper/custom_shimmer_loading_articles.dart';
 import 'package:news_app/core/helper/error_data_indicator.dart';
 import 'package:news_app/core/helper/loading_data_indicator.dart';
 import 'package:news_app/core/helper/no_data_indicator.dart';
 import 'package:news_app/core/model/articalsModel/articles_item_model.dart';
 import 'package:news_app/core/model/sourcesModel/sources_item_model.dart';
 import 'package:news_app/core/services/api/api_services.dart';
+import 'package:news_app/core/utils/app_text.dart';
 import 'package:news_app/feature/home/view/widgets/custom_item_sourve.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 import '../../../../core/utils/app_padding.dart';
@@ -34,10 +34,10 @@ class _NewsViewState extends State<NewsView> {
           return const LoadingIndicator();
         }
         if(snapShot.hasError ||snapShot.data?.status!="ok"){
-          return const ErrorIndicator(msg: "error now Source",);
+          return  ErrorIndicator(msg: AppText.errorNowSource);
         }
         if(!snapShot.hasData){
-          return const NoDataIndicator(msg: "no source",);
+          return  NoDataIndicator(msg: AppText.noSource,);
         }
         return sourceItem!=null? Column(
           children: [
@@ -57,14 +57,13 @@ class _NewsViewState extends State<NewsView> {
                   builder: (context, snapShot) {
                     final List<ArticlesItemsModel>? articalsItems=  snapShot.data?.articles;
                     if(snapShot.connectionState==.waiting){
-                      return const CustomShimmerLoadingArticles();
-                    //  return const LoadingIndicator();
+                     return const LoadingIndicator();
                     }
                     if(snapShot.hasError ||snapShot.data?.status!="ok"){
-                      return const ErrorIndicator(msg: "error now Articals",);
+                      return  ErrorIndicator(msg:AppText.errorNowArticles);
                     }
                     if(!snapShot.hasData){
-                      return const NoDataIndicator(msg: "no source",);
+                      return  NoDataIndicator(msg:AppText.noArticlesFound);
                     }
                     return articalsItems!=null? Skeletonizer(
                       enabled:snapShot.connectionState==.waiting,
@@ -89,7 +88,7 @@ class _NewsViewState extends State<NewsView> {
                         separatorBuilder: (_, _) => const SizedBox(height: 16),
                         itemCount: articalsItems.length,
                       ),
-                    ):const NoDataIndicator(msg: "no articals Found",);
+                    ): NoDataIndicator(msg: AppText.noArticlesFound,);
                   }
                 ),
               ),

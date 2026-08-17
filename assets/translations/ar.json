@@ -10,7 +10,7 @@
   "language": "اللغة",
   "english": "الإنجليزية",
   "arabic": "العربية",
-
+  "search": "البحث",
   "general": "عام",
   "business": "أعمال",
   "entertainment": "ترفيه",
@@ -19,5 +19,15 @@
   "technology": "تكنولوجيا",
   "sport": "رياضة",
 
-  "viewFullArticel": "عرض المقال كاملًا"
+  "viewFullArticel": "عرض المقال كاملًا",
+
+
+  "error_now_source": "حدث خطأ في جلب المصادر",
+  "no_source": "لم يتم العثور على مصادر",
+  "not_found_news": "لم يتم العثور على أخبار",
+
+  "error_now_articles": "حدث خطأ في جلب المقالات",
+  "no_articles_found": "لم يتم العثور على مقالات",
+
+  "news_search": "ابحث عن الأخبار"
 }
