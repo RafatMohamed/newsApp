@@ -56,9 +56,6 @@ class _NewsViewState extends State<NewsView> {
                   future: ApiServices.getArticals(sourceItem[currentIndex].id??"bbc-news"),
                   builder: (context, snapShot) {
                     final List<ArticlesItemsModel>? articalsItems=  snapShot.data?.articles;
-                    if(snapShot.connectionState==.waiting){
-                     return const LoadingIndicator();
-                    }
                     if(snapShot.hasError ||snapShot.data?.status!="ok"){
                       return  ErrorIndicator(msg:AppText.errorNowArticles);
                     }
