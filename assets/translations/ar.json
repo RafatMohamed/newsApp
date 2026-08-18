@@ -20,8 +20,7 @@
   "sport": "رياضة",
 
   "viewFullArticel": "عرض المقال كاملًا",
-
-
+  "isLoading": "جاري التحميل",
   "error_now_source": "حدث خطأ في جلب المصادر",
   "no_source": "لم يتم العثور على مصادر",
   "not_found_news": "لم يتم العثور على أخبار",
