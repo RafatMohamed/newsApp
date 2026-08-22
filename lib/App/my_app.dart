@@ -1,7 +1,8 @@
+import 'dart:developer';
+
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:news_app/core/services/FCM_Services/fcm_services.dart';
 import 'package:news_app/core/utils/app_them.dart';
 import 'package:provider/provider.dart';
@@ -42,7 +43,7 @@ class _CustomMaterialsAppState extends State<CustomMaterialsApp> {
     super.initState();
     FirebaseMessaging.onMessage.listen(FcmServices.showFlutterNotification);
     FirebaseMessaging.onMessage.listen((event) {
-     return print(event.messageId);
+     log(event.messageId.toString());
     },);
   }
   @override

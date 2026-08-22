@@ -1,6 +1,4 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:news_app/core/helper/error_data_indicator.dart';
 import 'package:news_app/core/helper/loading_data_indicator.dart';
 import 'package:news_app/core/helper/no_data_indicator.dart';
@@ -9,10 +7,8 @@ import 'package:news_app/core/model/articalsModel/articles_model.dart';
 import 'package:news_app/core/model/sourcesModel/source_model.dart';
 import 'package:news_app/core/model/sourcesModel/sources_item_model.dart';
 import 'package:news_app/core/services/api/api_services.dart';
-import 'package:news_app/core/utils/app_colors.dart';
 import 'package:news_app/core/utils/app_text.dart';
 import 'package:news_app/feature/home/view/widgets/custom_item_sourve.dart';
-import 'package:skeletonizer/skeletonizer.dart';
 import '../../../../core/utils/app_padding.dart';
 import '../../../../core/utils/utils_app_helper.dart';
 import 'custom_bottom_sheet_source.dart';
@@ -70,9 +66,9 @@ class _NewsViewState extends State<NewsView> {
         page: newPage,
         pageSize: pageSize,
       );
-      final List<ArticlesItemsModel>? articalesItemListnew =
+      final List<ArticlesItemsModel> articalesItemListnew =
           articalesResultNew.articles ?? [];
-      if (articalesItemListnew!.isEmpty) {
+      if (articalesItemListnew.isEmpty) {
         isLoading = false;
         isMoreArticales = false;
         setState(() {});
@@ -110,7 +106,6 @@ class _NewsViewState extends State<NewsView> {
   @override
   Widget build(BuildContext context) {
     final TextTheme textThem = GetThemData.getTextThemData(context);
-    final ThemeData colorThem = GetThemData.getColorThemData(context);
     return FutureBuilder(
       future: sourcesResult,
       builder: (context, snapShot) {
@@ -147,7 +142,7 @@ class _NewsViewState extends State<NewsView> {
                         future: articalesResult,
                         builder: (context, snapShot) {
                           if (snapShot.connectionState == .waiting) {
-                            return LoadingIndicator();
+                            return const LoadingIndicator();
                           }
                           if (snapShot.hasError ||
                               snapShot.data?.status != "ok") {
@@ -163,13 +158,12 @@ class _NewsViewState extends State<NewsView> {
                           if (articalesItemList.isEmpty) {
                             articalesItemList = snapShot.data?.articles ?? [];
                           }
-
                           if (articalesItemList.isEmpty) {
                             return NoDataIndicator(
                               msg: AppText.noArticlesFound,
                             );
                           }
-                          if (articalesItemList.isNotEmpty) {
+                          if (articalesItemList.isNotEmpty &&  !(snapShot.connectionState == .waiting)) {
                             return Column(
                               children: [
                                 Expanded(
@@ -195,24 +189,23 @@ class _NewsViewState extends State<NewsView> {
                                     },
                                     separatorBuilder: (_, _) =>
                                         const SizedBox(height: 16),
-                                    itemCount:
-                                        articalesItemList.length +
-                                        (isLoading ? 1 : 0),
+                                    itemCount: articalesItemList.length
                                   ),
                                 ),
-                                if (isLoading) Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Row(
-                                    mainAxisAlignment: .spaceEvenly,
-                                    children: [
-                                      Text(
-                                        AppText.isLoading,
-                                        style: textThem.bodyMedium,
-                                      ),
-                                      LoadingIndicator(),
-                                    ],
+                                if (isLoading && !(snapShot.connectionState == .waiting))
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Row(
+                                      mainAxisAlignment: .spaceEvenly,
+                                      children: [
+                                        Text(
+                                          AppText.isLoading,
+                                          style: textThem.bodyMedium,
+                                        ),
+                                        const LoadingIndicator(),
+                                      ],
+                                    ),
                                   ),
-                                ),
                               ],
                             );
                           } else {
