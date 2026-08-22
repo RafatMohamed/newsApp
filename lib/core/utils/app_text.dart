@@ -37,4 +37,5 @@ class AppText {
 
   // Search
   static String get newsSearch => "news_search".tr();
+  static String get isLoading => "isLoading".tr();
 }

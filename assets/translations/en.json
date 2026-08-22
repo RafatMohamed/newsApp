@@ -28,5 +28,6 @@
   "error_now_articles": "Something went wrong with articles",
   "no_articles_found": "No articles found",
 
-  "news_search": "Search for news"
+  "news_search": "Search for news",
+  "isLoading": "Waiting is Loading"
 }

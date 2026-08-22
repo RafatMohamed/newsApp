@@ -10,7 +10,7 @@ import '../utils/utils_app_helper.dart';
 class CustomTextField extends StatefulWidget {
   const CustomTextField({super.key, required this.onSubmitted, required this.onClear,});
   final Function(String) onSubmitted;
-  final Function() onClear;
+  final Function(void) onClear;
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
 }
@@ -51,7 +51,9 @@ class _CustomTextFieldState extends State<CustomTextField> {
         contentPadding: const EdgeInsetsDirectional.symmetric(horizontal: AppPadding.p16),
         prefixIcon: SvgPicture.asset(Assets.icons.search.path,colorFilter: ColorFilter.mode(colorTheme.secondaryHeaderColor, .srcIn),fit: .scaleDown,),
         prefixIconColor: colorTheme.secondaryHeaderColor,
-        suffixIcon: IconButton(onPressed: widget.onClear, icon: const Icon(Icons.clear_outlined)),
+        suffixIcon: IconButton(onPressed:() {
+          widget.onClear(queryController.clear());
+        }, icon: const Icon(Icons.clear_outlined)),
         suffixIconColor:  colorTheme.secondaryHeaderColor,
       ),
     );

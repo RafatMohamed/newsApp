@@ -1,5 +1,9 @@
+import 'dart:developer';
+
 import 'package:easy_localization/easy_localization.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
+import 'package:news_app/core/services/FCM_Services/fcm_services.dart';
 import 'package:news_app/core/utils/app_them.dart';
 import 'package:provider/provider.dart';
 import '../core/logic/providers/localization.dart';
@@ -25,9 +29,23 @@ class NewsApp extends StatelessWidget {
   }
 }
 
-class CustomMaterialsApp extends StatelessWidget {
+class CustomMaterialsApp extends StatefulWidget {
   const CustomMaterialsApp({super.key});
 
+  @override
+  State<CustomMaterialsApp> createState() => _CustomMaterialsAppState();
+}
+
+class _CustomMaterialsAppState extends State<CustomMaterialsApp> {
+
+  @override
+  void initState() {
+    super.initState();
+    FirebaseMessaging.onMessage.listen(FcmServices.showFlutterNotification);
+    FirebaseMessaging.onMessage.listen((event) {
+     log(event.messageId.toString());
+    },);
+  }
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
