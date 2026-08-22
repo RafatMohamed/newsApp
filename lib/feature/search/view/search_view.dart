@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/core/helper/loading_data_indicator.dart';
 import 'package:news_app/core/model/articalsModel/articles_model.dart';
 import 'package:news_app/core/utils/app_text.dart';
 import 'package:news_app/core/widgets/custom_text_field.dart';
@@ -42,12 +43,15 @@ class _SearchViewState extends State<SearchView> {
     return Scaffold(
       body: SafeArea(
         child: Column(
+          crossAxisAlignment: .stretch,
           children: [
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: AppPadding.p16,vertical: AppPadding.p16),
               child: CustomTextField(
                 onSubmitted: onSubmittedSearch,
-                onClear: clearSearch,
+                onClear:(p0) {
+                  clearSearch();
+                } ,
               ),
             ),
             Expanded(
@@ -59,8 +63,10 @@ class _SearchViewState extends State<SearchView> {
                         future: articalsResult,
                         builder: (context, snapShot) {
                           final List<ArticlesItemsModel>? articalsItems = snapShot.data?.articles;
-                          if (snapShot.hasError ||
-                              snapShot.data?.status != "ok") {
+                          if(snapShot.connectionState==.waiting){
+                            return const  LoadingIndicator();
+                          }
+                          if (snapShot.hasError || snapShot.data?.status != "ok") {
                             return  ErrorIndicator(
                               msg: AppText.errorNowArticles,
                             );
