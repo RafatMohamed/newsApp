@@ -7,10 +7,9 @@ import 'package:news_app/core/model/sourcesModel/source_model.dart';
 
 import '../../model/articalsModel/articles_model.dart';
 class ApiServices {
-/// Endpoints used (the key is appended from ApiConst.apiKey):
-/// https://newsapi.org/v2/top-headlines/sources?category=general
-/// https://newsapi.org/v2/top-headlines?country=us
-/// https://newsapi.org/v2/everything?q=Apple&sortBy=popularity
+///https://newsapi.org/v2/top-headlines/sources?category=general&apiKey=5e9253dd8c7f40de9799d329e5211e93&
+  ///   https://newsapi.org/v2/top-headlines?country=us&apiKey=5e9253dd8c7f40de9799d329e5211e93
+/// https://newsapi.org/v2/everything?q=Apple&from=2026-08-16&sortBy=popularity&apiKey=ad3e59943b25408ca65259fa577be2e4
   static Future<SourceModel> getSources(String categoryID)async{
     final Uri url = Uri.https(ApiConst.baseURl, ApiConst.sourceEndPoint,{
       "apiKey":ApiConst.apiKey,
