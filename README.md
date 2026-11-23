@@ -30,7 +30,7 @@ cd newsApp
 flutter pub get
 ```
 
-1. Obtain your own NewsAPI credentials and review `lib/core/consts/api_const.dart`. Current source contains embedded API keys, including examples in comments: replace/rotate exposed keys and avoid publishing new secrets.
+1. Add your own NewsAPI key: copy `lib/core/consts/api_keys.example.dart` to `lib/core/consts/api_keys.dart` and paste your key there. That file is gitignored, so the key stays out of version control. Never commit a real key.
 2. The service uses `v2/top-headlines/sources`, `v2/top-headlines` and `v2/everything`. API-plan restrictions and quotas may affect requests.
 3. Configure your own Firebase project and regenerate Firebase options/platform files for messaging. Complete platform notification permissions and provider setup.
 
