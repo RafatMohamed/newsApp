@@ -43,3 +43,6 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Local API keys - never commit (copy api_keys.example.dart to api_keys.dart)
+lib/core/consts/api_keys.dart
